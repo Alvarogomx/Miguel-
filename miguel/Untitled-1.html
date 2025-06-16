@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Aniversário 🎉</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: url('WhatsApp_Image.jpeg.jpeg') no-repeat center center;
+            background-size: cover;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            flex-direction: column;
+        }
+        .mensagem {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 20px;
+            max-width: 600px;
+            color: #333;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            animation: pulse 2s infinite;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        .botoes button {
+            background-color: #00bfa6;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 1em;
+        }
+        .botoes button:hover {
+            background-color: #00796b;
+        }
+        @keyframes pulse {
+            0% {transform: scale(1);}
+            50% {transform: scale(1.03);}
+            100% {transform: scale(1);}
+        }
+    </style>
+</head>
+<body>
+
+    <div class="mensagem">
+        <h1>Feliz Aniversário! 🎂🎈</h1>
+        <p>Que seu dia seja cheio de amor, sorrisos e momentos maravilhosos! ❤️ Que você continue iluminando a vida de todos ao seu redor. Do seu principe, 🎉🌊</p>
+        <div class="botoes">
+            <button onclick="playAudio('audio1')">▶️ Tocar áudio 1</button>
+            <button onclick="playAudio('audio2')">▶️ Tocar áudio 2</button>
+            <button onclick="pauseAudios()">⏸️ Pausar</button>
+        </div>
+    </div>
+
+    <audio id="audio1" src="audio01.m4a.m4a"></audio>
+    <audio id="audio2" src="audio02.m4a.m4a"></audio>
+
+    <script>
+        const audios = [
+            document.getElementById('audio1'),
+            document.getElementById('audio2')
+        ];
+
+        function playAudio(id) {
+            pauseAudios();
+            document.getElementById(id).play();
+        }
+
+        function pauseAudios() {
+            audios.forEach(audio => {
+                audio.pause();
+                audio.currentTime = 0;
+            });
+        }
+    </script>
+</body>
+</html>
